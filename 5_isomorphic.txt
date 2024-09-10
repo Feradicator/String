@@ -1,0 +1,36 @@
+
+
+class Solution
+{
+    //Function to check if two strings are isomorphic.
+    public static boolean areIsomorphic(String str1,String str2)
+    {
+        if(str1.length()!=str2.length())
+        return false;
+        int length=str1.length();
+        
+        int []arr1=new int[26];
+        int []arr2=new int[26];
+        Arrays.fill(arr1,-1);
+        Arrays.fill(arr2,-1);
+        boolean check=true;
+        for(int i=0;i<length;i++)
+        {
+            if(arr1[str1.charAt(i)-'a']!=arr2[str2.charAt(i)-'a'])
+            {
+                check=false;
+                break;
+            }
+            else
+            {
+                arr1[str1.charAt(i)-'a']=i;
+                arr2[str2.charAt(i)-'a']=i;
+                
+            }
+        }
+        return check;
+        
+        // Your code here
+        
+    }
+}
